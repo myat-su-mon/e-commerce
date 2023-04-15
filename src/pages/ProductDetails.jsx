@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
-import {doc, getDoc } from 'firebase/firestore';
-import { db } from '../firebase/config';
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../firebase/config";
 import {
   createStyles,
   Image,
@@ -13,9 +13,9 @@ import {
   List,
   ThemeIcon,
   rem,
-  Rating
+  Rating,
 } from "@mantine/core";
-import {AiOutlineCheckCircle} from 'react-icons/ai'
+import { AiOutlineCheckCircle } from "react-icons/ai";
 
 const useStyles = createStyles((theme) => ({
   inner: {
@@ -73,7 +73,7 @@ const useStyles = createStyles((theme) => ({
 }));
 
 const ProductDetails = () => {
-  const {id} = useParams();
+  const { id } = useParams();
   const [product, setProduct] = useState({});
 
   const docRef = doc(db, "products", id);
@@ -81,9 +81,11 @@ const ProductDetails = () => {
   const fetchProduct = async () => {
     const data = await getDoc(docRef);
     setProduct(data.data());
-  }
+  };
 
-  useEffect(()=> {fetchProduct()}, []);
+  useEffect(() => {
+    fetchProduct();
+  }, []);
 
   const { classes } = useStyles();
   return (
@@ -95,7 +97,6 @@ const ProductDetails = () => {
             <Text color="dimmed" mt="md">
               {product?.description}
             </Text>
-
             <List
               mt={30}
               spacing="sm"
@@ -146,6 +147,6 @@ const ProductDetails = () => {
       </Container>
     </div>
   );
-}
+};
 
-export default ProductDetails
+export default ProductDetails;
