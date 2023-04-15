@@ -31,6 +31,7 @@ const Products = () => {
   return (
     <>
       <Navbar />
+      <Link>hi</Link>
       <Flex
         gap={"md"}
         my={"md"}

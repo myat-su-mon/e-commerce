@@ -23,8 +23,6 @@ import Cookies from "js-cookie";
 const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.products.cart);
-  // const cartItems = JSON.parse(Cookies.get("cart"));
-  // const [cart, setCart] = useState(cartItems? [...cartItems] : []);
   const handleDelete = async (id) => {
     const docRef = doc(db, "products", id);
 
