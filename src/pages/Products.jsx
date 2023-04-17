@@ -39,7 +39,7 @@ const Products = () => {
       ) : (
         <>
           <Navbar />
-          <Link>hi</Link>
+          <Hero/>
           <Flex
             gap={"md"}
             my={"md"}
